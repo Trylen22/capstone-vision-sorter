@@ -1,0 +1,1542 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Vision Sorter Inline</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Vision Sorter Inline" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Vision Sorter Inline&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;sorter-animation&quot;&gt;
+  &lt;div class=&quot;viz-row&quot;&gt;&lt;h2&gt;Vision sorter · a complete cycle&lt;/h2&gt;&lt;span class=&quot;text-small&quot;&gt;Screws / bolts example · illustrative hardware&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;viz-controls&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;sort-play&quot;&gt;Pause&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;sort-replay&quot;&gt;Replay&lt;/button&gt;
+    &lt;label class=&quot;form-label&quot;&gt;View &lt;select class=&quot;form-select&quot; id=&quot;sort-view&quot;&gt;&lt;option value=&quot;iso&quot;&gt;3D overview&lt;/option&gt;&lt;option value=&quot;top&quot;&gt;Overhead&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+    &lt;label class=&quot;form-label&quot;&gt;Animation speed &lt;select class=&quot;form-select&quot; id=&quot;sort-speed&quot;&gt;&lt;option value=&quot;1&quot;&gt;1×&lt;/option&gt;&lt;option value=&quot;0.5&quot;&gt;½×&lt;/option&gt;&lt;option value=&quot;2&quot;&gt;2×&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;sort-orbit&quot;&gt;Viewing angle &lt;span id=&quot;sort-angle&quot;&gt;0°&lt;/span&gt;&lt;/label&gt;
+  &lt;input id=&quot;sort-orbit&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;1&quot; value=&quot;0&quot; aria-label=&quot;Rotate view 360 degrees&quot;&gt;
+  &lt;canvas id=&quot;sort-scene&quot; role=&quot;img&quot; aria-label=&quot;Animated three-dimensional conveyor with a stationary overhead camera, Jetson computer, PLC, pivoting end wedge, and two collection bins.&quot;&gt;&lt;/canvas&gt;
+  &lt;div class=&quot;viz-row&quot;&gt;&lt;strong id=&quot;sort-phase&quot; aria-live=&quot;polite&quot;&gt;01 · Detect incoming object&lt;/strong&gt;&lt;span id=&quot;sort-detail&quot;&gt;PLC reads the photoelectric sensor.&lt;/span&gt;&lt;/div&gt;
+  &lt;input id=&quot;sort-time&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;36&quot; step=&quot;0.02&quot; value=&quot;0&quot; aria-label=&quot;Animation timeline&quot;&gt;
+  &lt;div id=&quot;sort-network&quot;&gt;
+    &lt;div class=&quot;sort-node&quot; id=&quot;node-jetson&quot;&gt;&lt;strong&gt;Jetson Nano&lt;/strong&gt;&lt;span id=&quot;jetson-state&quot;&gt;Camera ready&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;sort-node&quot; id=&quot;node-plc&quot;&gt;&lt;strong&gt;PLC&lt;/strong&gt;&lt;span id=&quot;plc-state&quot;&gt;Conveyor RUN&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;sort-node&quot; id=&quot;node-sql&quot;&gt;&lt;strong&gt;SQL database&lt;/strong&gt;&lt;span id=&quot;sql-state&quot;&gt;0 detection records&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;sort-node&quot; id=&quot;node-scada&quot;&gt;&lt;strong&gt;Ignition concept&lt;/strong&gt;&lt;span id=&quot;scada-state&quot;&gt;Live PLC status + SQL counts&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;canvas id=&quot;sort-flow&quot; role=&quot;img&quot; aria-label=&quot;Animated data paths: Jetson to PLC for classification, Jetson to SQL for logging, SQL to Ignition for counts, and PLC to Ignition for live status.&quot;&gt;&lt;/canvas&gt;
+  &lt;div class=&quot;text-small&quot; id=&quot;sort-event&quot;&gt;Waiting for the first object.&lt;/div&gt;
+  &lt;div class=&quot;text-small sort-note&quot;&gt;Proposed sequence: stop, identify, then sort. SQL counts represent detections. Analog I/O and scaling are still to be selected.&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+#sorter-animation {color:var(--foreground);width:100%}
+#sorter-animation h2 {margin:0}
+#sorter-animation canvas {display:block;width:100%}
+#sort-scene {height:360px;touch-action:pan-y}
+#sorter-animation .viz-controls {margin:12px 0}
+#sort-network {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+#sort-network .sort-node {display:flex;flex-direction:column;gap:5px;border-top:2px solid var(--border);padding-top:8px}
+#sort-network .sort-node.active {border-color:var(--foreground)}
+#sort-network span,.sort-note {font-size:var(--font-size-base)}
+#sort-flow {height:116px}
+#sorter-animation .sort-note {margin-top:12px;color:var(--muted-foreground)}
+@media(max-width:520px){#sort-scene{height:310px}#sort-network{grid-template-columns:repeat(2,minmax(0,1fr))}#sort-detail{display:block}}
+&lt;/style&gt;
+&lt;script&gt;
+(()=&gt;{
+const root=document.getElementById(&#x27;sorter-animation&#x27;), $=id=&gt;root.querySelector(&#x27;#&#x27;+id);
+const canvas=$(&#x27;sort-scene&#x27;),ctx=canvas.getContext(&#x27;2d&#x27;), flow=$(&#x27;sort-flow&#x27;),fc=flow.getContext(&#x27;2d&#x27;);
+let t=0,playing=!matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches,last=0,W=736,H=360,view=&#x27;iso&#x27;,orbit=0,lastStage=-1;
+const clamp=(x,a=0,b=1)=&gt;Math.max(a,Math.min(b,x)), lerp=(a,b,x)=&gt;a+(b-a)*x;
+let colors={};
+function palette(){const s=getComputedStyle(root);const get=k=&gt;s.getPropertyValue(k).trim();
+ const probe=document.createElement(&#x27;span&#x27;);root.append(probe);const resolve=k=&gt;{probe.style.color=get(k);return getComputedStyle(probe).color};
+ colors={fg:resolve(&#x27;--foreground&#x27;),muted:resolve(&#x27;--muted-foreground&#x27;),border:resolve(&#x27;--border&#x27;),bg:resolve(&#x27;--background&#x27;),a:resolve(&#x27;--viz-series-1&#x27;),b:resolve(&#x27;--viz-series-2&#x27;),c:resolve(&#x27;--viz-series-3&#x27;)};probe.remove();}
+const colorCache=new Map(),colorCanvas=document.createElement(&#x27;canvas&#x27;);
+colorCanvas.width=colorCanvas.height=1;
+const colorContext=colorCanvas.getContext(&#x27;2d&#x27;,{willReadFrequently:true});
+function rgba(c,a){
+ let channels=colorCache.get(c);
+ if(!channels){
+  colorContext.clearRect(0,0,1,1);
+  colorContext.fillStyle=c;
+  colorContext.fillRect(0,0,1,1);
+  channels=Array.from(colorContext.getImageData(0,0,1,1).data);
+  colorCache.set(c,channels);
+ }
+ return &#x27;rgba(&#x27;+channels[0]+&#x27;,&#x27;+channels[1]+&#x27;,&#x27;+channels[2]+&#x27;,&#x27;+(channels[3]/255*a)+&#x27;)&#x27;;
+}
+function size(c,height){const w=c.clientWidth,d=Math.min(devicePixelRatio||1,2);c.width=w*d;c.height=height*d;c.getContext(&#x27;2d&#x27;).setTransform(d,0,0,d,0,0);return w}
+function resize(){W=size(canvas,canvas.clientHeight);H=canvas.clientHeight;size(flow,116);palette();draw();}
+function rotate(x,y){const a=orbit*Math.PI/180;return [x*Math.cos(a)-y*Math.sin(a),x*Math.sin(a)+y*Math.cos(a)];}
+function project(x,y,z){let s=Math.min(W/16.8,H/9.8);[x,y]=rotate(x,y);return view===&#x27;top&#x27;?[W*.48+x*s,H*.52+y*s*.75-z*s*.09]:[W*.48+(x*.88-y*.58)*s,H*.57+(x*.26+y*.38-z*.92)*s];}
+let shapes=[];
+function poly(points,fill,stroke=colors.border){shapes.push({depth:points.reduce((a,p)=&gt;a+rotate(p[0],p[1])[0]*.26+rotate(p[0],p[1])[1]*.38-p[2]*.08,0)/points.length,points,fill,stroke});}
+function box(x,y,z,w,d,h,col){let a=[x-w/2,y-d/2,z],b=[x+w/2,y-d/2,z],c=[x+w/2,y+d/2,z],e=[x-w/2,y+d/2,z];const up=p=&gt;[p[0],p[1],p[2]+h];poly([a,b,up(b),up(a)],rgba(col,.72));poly([a,e,up(e),up(a)],rgba(col,.68));poly([b,c,up(c),up(b)],rgba(col,.62));poly([e,c,up(c),up(e)],rgba(col,.8));poly([up(a),up(b),up(c),up(e)],col);}
+function line3(a,b,col,width=1,dash=[]){let p=project(...a),q=project(...b);ctx.beginPath();ctx.setLineDash(dash);ctx.moveTo(...p);ctx.lineTo(...q);ctx.strokeStyle=col;ctx.lineWidth=width;ctx.stroke();ctx.setLineDash([]);}
+function label(text,pos,dx=0,dy=0){const p=project(...pos);ctx.font=&#x27;12px system-ui&#x27;;ctx.textAlign=&#x27;center&#x27;;ctx.fillStyle=colors.fg;ctx.fillText(text,p[0]+dx,p[1]+dy);}
+function stageData(){let n=Math.min(2,Math.floor(t/12)),p=t-n*12;return {n,p,kind:n%2===0?&#x27;A&#x27;:&#x27;B&#x27;,color:n%2===0?colors.a:colors.b};}
+function draw(){if(!colors.fg)return;ctx.clearRect(0,0,W,H);shapes=[];
+const {n,p,kind,color}=stageData();let scan=p&gt;=2&amp;&amp;p&lt;5,run=!scan&amp;&amp;t&lt;36;
+for(let x=-6;x&lt;=6;x++)line3([x,-3,0],[x,3,0],rgba(colors.border,.5));
+for(let y=-3;y&lt;=3;y++)line3([-6,y,0],[6,y,0],rgba(colors.border,.5));
+// Conveyor frame, legs, tread and a discrete entry sensor.
+for(const x of [-4.3,3.6])for(const y of [-.65,.65])box(x,y,0,.17,.17,1.15,colors.muted);
+box(-.5,0,1,9.5,1.75,.23,colors.muted);box(-.5,0,1.24,9.45,1.45,.07,rgba(colors.fg,.3));
+let dist=n*6+(p&lt;2?p*.9:p&lt;5?1.8:1.8+(p-5)*.95);
+for(let i=0;i&lt;24;i++){let x=-5.15+((i*.4+dist*.4)%9.3);box(x,0,1.32,.035,1.38,.01,colors.border);}
+box(-2.2,-1.03,1.05,.22,.22,.58,colors.fg);
+// Stationary camera support: symbolic JetMax arm, no picking tool.
+box(-1.1,-2.05,0,1,.85,.22,colors.muted);box(-1.1,-2.05,.22,.3,.3,2.3,colors.muted);
+box(-1.1,-1.1,2.45,.28,2.1,.25,colors.muted);box(-1.1,0,2.36,.62,.55,.35,colors.fg);
+box(-1.1,0,2.3,.23,.23,.06,colors.a);
+box(-1.1,-2.3,.8,.64,.15,.5,colors.c);
+// PLC enclosure and motor drive, visually separate from the vision computer.
+box(2.15,-2.05,0,1.4,.65,1.55,colors.muted);box(2.15,-1.69,.57,1.08,.07,.66,colors.bg);
+for(let i=0;i&lt;4;i++)box(1.8+i*.23,-1.64,1.02,.1,.025,.06,run?colors.c:colors.border);
+box(3.8,-.98,.83,.65,.5,.45,colors.fg);
+// One belt feeds a pivoting wedge and two passive discharge paths.
+const direction=kind===&#x27;A&#x27;?-1:1;
+const previous=n===0?0:-direction;
+const gate=lerp(previous,direction,clamp((p-4)/1.5));
+box(4.65,0,.95,1.4,3.5,.13,colors.muted);
+// Wedge rotates around its downstream pivot, like a track switch.
+const angle=gate*.55;
+function wedgePoint(u,v,z){return [4.95+u*Math.cos(angle)-v*Math.sin(angle),u*Math.sin(angle)+v*Math.cos(angle),z]}
+const base=[wedgePoint(-1.35,0,1.1),wedgePoint(0,-.16,1.1),wedgePoint(0,.16,1.1)];
+poly(base.map(q=&gt;[q[0],q[1],q[2]+.42]),colors.c);
+for(let j=0;j&lt;3;j++){let a=base[j],b=base[(j+1)%3];poly([a,b,[b[0],b[1],b[2]+.42],[a[0],a[1],a[2]+.42]],rgba(colors.c,.8))}
+box(4.95,0,.8,.25,.25,.3,colors.c);
+function bin(x,y,c){box(x,y,0,1.65,1.55,.12,c);for(const dy of [-.72,.72])box(x,y+dy,.12,1.65,.1,.63,c);for(const dx of [-.77,.77])box(x+dx,y,.12,.1,1.55,.63,c)}
+bin(5.45,-1.25,rgba(colors.a,.45));bin(5.45,1.25,rgba(colors.b,.45));
+function fastener(x,y,z,screw,col){
+ const len=screw?.85:1.0;
+ box(x,y,z,len,.18,.18,col);
+ for(let k=0;k&lt;6;k++)box(x-len/2+.12+k*.1,y,z-.015,.035,.24,.21,col);
+ box(x-len/2-.06,y,z-.07,.16,screw?.36:.43,screw?.3:.38,col);
+ if(screw)poly([[x+len/2,y-.09,z],[x+len/2+.2,y,z+.09],[x+len/2,y+.09,z+.18]],col);
+}
+let x,y=0,z=1.4;
+if(p&lt;2)x=lerp(-4.7,-1.1,p/2);
+else if(p&lt;5)x=-1.1;
+else if(p&lt;8)x=lerp(-1.1,3.6,(p-5)/3);
+else {let travel=clamp((p-8)/2);x=lerp(3.6,5.45,travel);y=direction*1.25*travel;z=lerp(1.4,.24,clamp((p-9)/1));}
+for(let i=0;i&lt;n;i++){let a=i%2===0;fastener(5.35,a?-1.25:1.25,.17+i*.08,a,a?colors.a:colors.b)}
+fastener(x,y,z,kind===&#x27;A&#x27;,color);
+shapes.sort((a,b)=&gt;a.depth-b.depth).forEach(s=&gt;{ctx.beginPath();s.points.forEach((p,i)=&gt;{let q=project(...p);i?ctx.lineTo(...q):ctx.moveTo(...q)});ctx.closePath();ctx.fillStyle=s.fill;ctx.fill();ctx.strokeStyle=s.stroke;ctx.lineWidth=.6;ctx.stroke()});
+if(scan){const apex=[-1.1,0,2.31];for(const dx of [-.55,.55])for(const dy of [-.55,.55])line3(apex,[-1.1+dx,dy,1.35],rgba(colors.a,.45),1);let yy=Math.sin(p*7)*.45;line3([-1.65,yy,1.88],[-.55,yy,1.88],colors.a,2);}
+line3([-2.2,-.85,1.55],[-2.2,.8,1.55],rgba(colors.c,.5),1,[3,4]);
+label(&#x27;Camera&#x27;,[-1.1,0,2.85],0,-8);label(&#x27;Jetson&#x27;,[-1.1,-2.3,.9],-12,-18);label(&#x27;PLC + drive&#x27;,[2.15,-2.05,1.85],18,-8);
+label(&#x27;Screws · left&#x27;,[5.45,-1.25,0],15,-9);label(&#x27;Bolts · right&#x27;,[5.45,1.25,0],0,30);label(&#x27;Pivoting wedge&#x27;,[4.95,0,1.75],0,-14);
+label(&#x27;Entry sensor&#x27;,[-2.2,-1.03,1.7],-35,-12);
+label(kind===&#x27;A&#x27;?&#x27;Screw&#x27;:&#x27;Bolt&#x27;,[x,y,z+.45],0,-3);
+const stage=p&lt;2?0:p&lt;3.4?1:p&lt;5?2:p&lt;7?3:p&lt;10?4:5;
+const headings=[&#x27;Detect incoming object&#x27;,&#x27;Stop belt · inspect object&#x27;,&#x27;Send category · log detection&#x27;,&#x27;PLC restarts conveyor&#x27;,&#x27;PLC routes the object&#x27;,&#x27;Ignition refreshes the display&#x27;];
+const details=[&#x27;Discrete sensor tells the PLC an object has arrived.&#x27;,&#x27;Stationary camera observes; the arm does not pick.&#x27;,&#x27;Two paths: integer to PLC, detection record to SQL.&#x27;,&#x27;PLC commands the motor drive.&#x27;,&#x27;PLC positions the wedge: screws left, bolts right.&#x27;,&#x27;PLC status and SQL detection counts share one screen.&#x27;];
+if(lastStage!==n*6+stage){$(&#x27;sort-phase&#x27;).textContent=String(stage+1).padStart(2,&#x27;0&#x27;)+&#x27; · &#x27;+headings[stage];$(&#x27;sort-detail&#x27;).textContent=details[stage];lastStage=n*6+stage;}
+let records=n+(p&gt;=4?1:0),countA=Math.ceil(records/2),countB=Math.floor(records/2);
+$(&#x27;jetson-state&#x27;).textContent=p&lt;2?&#x27;Camera ready&#x27;:p&lt;3.4?&#x27;Inspecting object…&#x27;:(kind===&#x27;A&#x27;?&#x27;Screw&#x27;:&#x27;Bolt&#x27;)+&#x27; → integer &#x27;+(kind===&#x27;A&#x27;?1:2);
+$(&#x27;plc-state&#x27;).textContent=(run?&#x27;Conveyor RUN&#x27;:&#x27;Conveyor STOP&#x27;)+(p&gt;=3.4?&#x27; · class &#x27;+(kind===&#x27;A&#x27;?1:2):&#x27;&#x27;);
+$(&#x27;sql-state&#x27;).textContent=records+&#x27; detection record&#x27;+(records===1?&#x27;&#x27;:&#x27;s&#x27;);
+$(&#x27;scada-state&#x27;).textContent=&#x27;Screws: &#x27;+countA+&#x27; · Bolts: &#x27;+countB+&#x27; · &#x27;+(run?&#x27;RUN&#x27;:&#x27;STOP&#x27;);
+$(&#x27;sort-event&#x27;).textContent=p&lt;3.4?&#x27;PLC → Ignition: belt &#x27;+(run?&#x27;running&#x27;:&#x27;stopped&#x27;):p&lt;5?&#x27;Jetson → PLC: class &#x27;+(kind===&#x27;A&#x27;?1:2)+&#x27;   |   Jetson → SQL: object &#x27;+(n+1)+&#x27;, category &#x27;+kind:&#x27;SQL → Ignition: detection totals   |   PLC → Ignition: machine status&#x27;;
+[&#x27;jetson&#x27;,&#x27;plc&#x27;,&#x27;sql&#x27;,&#x27;scada&#x27;].forEach(k=&gt;$(&#x27;node-&#x27;+k).classList.toggle(&#x27;active&#x27;,k===&#x27;plc&#x27;||(k===&#x27;jetson&#x27;&amp;&amp;scan)||(k===&#x27;sql&#x27;&amp;&amp;p&gt;=3.4&amp;&amp;p&lt;5)||(k===&#x27;scada&#x27;&amp;&amp;p&gt;=10)));
+drawFlow(p);$(&#x27;sort-time&#x27;).value=t;
+}
+function drawFlow(p){let w=flow.clientWidth;fc.clearRect(0,0,w,116);let narrow=w&lt;520;const routes=[[&#x27;Jetson → PLC · classification&#x27;,colors.a,p&gt;=3.4&amp;&amp;p&lt;5],[&#x27;Jetson → SQL · detection record&#x27;,colors.b,p&gt;=4&amp;&amp;p&lt;5.5],[&#x27;SQL → Ignition · counts&#x27;,colors.b,p&gt;=5],[&#x27;PLC ↔ Ignition · status / commands&#x27;,colors.c,true]];
+routes.forEach((r,i)=&gt;{let y=17+i*27;fc.font=&#x27;12px system-ui&#x27;;fc.textAlign=&#x27;left&#x27;;fc.fillStyle=colors.fg;fc.fillText(narrow?r[0].split(&#x27; · &#x27;)[0]:r[0],0,y+4);let start=narrow?135:300,end=w-8;fc.beginPath();fc.moveTo(start,y);fc.lineTo(end,y);fc.strokeStyle=rgba(colors.border,.8);fc.lineWidth=1;fc.stroke();if(r[2]){let f=(t*.65+i*.23)%1;fc.beginPath();fc.arc(lerp(start,end,f),y,4,0,Math.PI*2);fc.fillStyle=r[1];fc.fill();}});}
+$(&#x27;sort-play&#x27;).onclick=()=&gt;{if(t&gt;=36)t=0;playing=!playing;$(&#x27;sort-play&#x27;).textContent=playing?&#x27;Pause&#x27;:&#x27;Play&#x27;;};
+$(&#x27;sort-replay&#x27;).onclick=()=&gt;{t=0;lastStage=-1;playing=true;$(&#x27;sort-play&#x27;).textContent=&#x27;Pause&#x27;;draw()};
+$(&#x27;sort-orbit&#x27;).oninput=e=&gt;{orbit=+e.target.value;$(&#x27;sort-angle&#x27;).textContent=orbit+&#x27;°&#x27;;draw()};
+$(&#x27;sort-view&#x27;).onchange=e=&gt;{view=e.target.value;draw()};
+$(&#x27;sort-time&#x27;).oninput=e=&gt;{t=+e.target.value;playing=false;$(&#x27;sort-play&#x27;).textContent=&#x27;Play&#x27;;draw()};
+function tick(now){let dt=Math.min((now-last)/1000,.06);last=now;if(playing){t=Math.min(36,t+dt*Number($(&#x27;sort-speed&#x27;).value));if(t&gt;=36){playing=false;$(&#x27;sort-play&#x27;).textContent=&#x27;Play&#x27;;}draw()}requestAnimationFrame(tick)}
+$(&#x27;sort-play&#x27;).textContent=playing?&#x27;Pause&#x27;:&#x27;Play&#x27;;new ResizeObserver(resize).observe(canvas);new MutationObserver(()=&gt;{palette();draw()}).observe(document.documentElement,{attributes:true,attributeFilter:[&#x27;class&#x27;,&#x27;style&#x27;,&#x27;data-theme&#x27;]});resize();requestAnimationFrame(tick);
+})();
+&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
